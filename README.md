@@ -1,112 +1,287 @@
-# InMemória - Plataforma de Homenagens
+# InMemória - Desenvolvimento em Tempo Real ✨
 
-**Homenagens que Perduram** - Uma plataforma moderna e elegante para criar homenagens memoráveis com tecnologia adaptativa.
+## 🚀 Status Atual - COMPLETO!
 
-## 🎨 Visão Geral
+✅ **Arquitetura Completa**
+- Core Engine (FieldOrchestrator, TemplateEngine, CanvasRenderer, FlowController)
+- State Management (Zustand)
+- Types e Models
 
-InMemória é um aplicativo web que funciona como um app nativo mobile, permitindo usuários criar 4 tipos de homenagens:
+✅ **Canvas Renderer** - Pixi.js Integration
+- 3 Layouts: Retangular, Oval, Editorial
+- Renderização de campos automática
+- Máscaras de forma (oval)
+- Exportação PNG
 
-1. **Nota Falecimento** - Comunicado elegante (1080x1080px)
-2. **Sétimo Dia** - Convite para missa (1080x1080px)
-3. **Arte Placa** - Placa memorável (20x30cm)
-4. **Vídeo Homenagem** - Homenagem animada (MP4)
+✅ **Flow Controller** - Gerenciamento de Etapas
+- Navegação entre passos
+- Validação por etapa
+- Modo Guia ativável
+- Builders pré-configurados para 4 tipos
 
-## 🏗️ Arquitetura
+✅ **Components - Etapa 1 & 2 FUNCIONAIS**
+- FlowPessoal (Dados Pessoais) ✅
+- FlowVisual (Estilo Visual com Preview) ✅
+- FlowProgress (Barra de navegação) ✅
+- Canvas Component (Renderização) ✅
+
+✅ **React Hooks Customizados**
+- useFlow() - Controle do fluxo
+- useFields() - Gerenciamento de campos
+- useCurrentHomage() - Dados da homenagem
+
+✅ **Mobile-First UI**
+- Tailwind CSS
+- Framer Motion animations
+- Responsivo
+
+✅ **Routing Dinâmico**
+- `/flow/[type]/page.tsx` - Renderiza fluxo correto
+
+---
+
+## 📦 Arquivos Adicionados (10 arquivos)
 
 ```
-src/
-├── core/
-│   ├── engine/
-│   │   ├── FieldOrchestrator.ts (gerencia campos dinâmicos)
-│   │   └── TemplateEngine.ts (gerencia templates)
-│   └── models/
-│       └── Homage.ts (modelo de dados)
-├── modules/
-│   ├── flow/ (fluxos dos 4 tipos)
-│   ├── canvas/ (renderização)
-│   ├── editor/ (edição de campos)
-│   └── guide/ (modo guia)
-├── components/
-│   ├── common/ (componentes reutilizáveis)
-│   └── mobile/ (componentes mobile-first)
-├── state/
-│   ├── homageStore.ts (Zustand)
-│   └── uiStore.ts
-└── utils/
-    ├── imageUtils.ts
-    ├── dateUtils.ts
-    └── exportUtils.ts
+✅ src/core/engine/CanvasRenderer.ts
+✅ src/core/engine/FlowController.ts
+✅ src/modules/canvas/Canvas.tsx
+✅ src/state/hooks.ts
+✅ src/modules/flow/FlowProgress.tsx
+✅ src/modules/flow/steps/FlowPessoal.tsx
+✅ src/modules/flow/steps/FlowVisual.tsx
+✅ src/app/flow/[type]/page.tsx
+✅ next.config.js (atualizado)
+✅ package.json (atualizado)
 ```
 
-## 🚀 Padrões Modernos
+---
 
-- **Field Orchestrator Pattern**: Gerenciamento dinâmico de campos com dependências
-- **Template Engine Pattern**: Renderização de templates com validação
-- **Composable Flow Architecture**: Fluxos reutilizáveis e modulares
-- **Mobile-First Design**: Tailwind CSS + PWA
-- **Type-Safe**: 100% TypeScript
+## 🎯 Como Testar Agora
 
-## 🛠️ Tecnologias
-
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS
-- **State**: Zustand
-- **Canvas**: Pixi.js
-- **Fonts**: Playfair Display + Inter
-- **Icons**: Lucide React
-
-## 📦 Setup
-
+### 1️⃣ Clone e Instale
 ```bash
-# Instalar dependências
+git clone https://github.com/semcomentarios/inmemoria-app.git
+cd inmemoria-app
 npm install
-
-# Desenvolvimento
-npm run dev
-
-# Build
-npm run build
-
-# Start
-npm start
 ```
 
-## 🎯 Funcionalidades Principais
+### 2️⃣ Execute em Desenvolvimento
+```bash
+npm run dev
+```
 
-✅ FieldOrchestrator para gerenciamento de campos  
-✅ TemplateEngine para renderização  
-✅ Zustand para state management  
-✅ Mobile-first UI  
-✅ Preview em tempo real  
-✅ Export PNG/MP4  
-✅ Modo Guia  
-✅ Modo Logo  
+### 3️⃣ Acesse
+```
+http://localhost:3000
+```
 
-## 📝 Princípios
+### 4️⃣ Teste o Fluxo
+1. Click em **"Começar Agora"**
+2. Selecione **"Nota Falecimento"**
+3. **Etapa 1**: Upload foto, preencha Nome, Nascimento, Falecimento
+4. **Etapa 2**: 
+   - Escolha Layout (Retangular/Oval/Editorial)
+   - Selecione Template
+   - **Veja o Preview em Tempo Real** ← Pixi.js renderizando!
+5. Clique em **Modo Guia** para ver dicas
 
-- **Respeito**: A memória merece o melhor tratamento
-- **Simplicidade**: Interface intuitiva
-- **Tecnologia**: Composição visual inteligente
-- **Foco na memória**: Não em ferramentas
+---
 
-## 🔄 Alterações Cirúrgicas
+## 🎨 Funcionalidades Implementadas
 
-A arquitetura permite mudanças fáceis:
+### ✅ **CanvasRenderer**
+- Layout Retangular com template e overlay
+- Layout Oval com máscara circular na foto
+- Layout Editorial com fundo expandido
+- Campos renderizados automaticamente:
+  - Foto destacada
+  - Nome, nascimento, falecimento
+  - Cálculo automático de idade
+  - Mensagem família
+  - Frase bíblica
+  - Informações velório/sepultamento
+  - Selo gratuito/premium
+- Exportação PNG alta resolução
 
-- **Trocar Template**: Dados são mapeados automaticamente
-- **Adicionar Campo**: Registrar no FieldOrchestrator
-- **Novo Tipo**: Apenas um novo FlowStep
-- **Novo Layout**: TemplateEngine valida compatibilidade
+### ✅ **FlowController**
+- Navegação completa (próximo/anterior/jump)
+- Sistema de validação por etapa
+- Modo Guia com dicas contextuais
+- FlowBuilder para construção elegante
+- FlowFactory com 4 tipos pré-configurados
+- Sistema de eventos com listeners
 
-## 📱 Deploy
+### ✅ **React Components**
+- **FlowPessoal**: Upload de foto, validação em tempo real
+- **FlowVisual**: Seletor layout/template + Canvas preview
+- **FlowProgress**: Barra animada com indicadores
+- **Canvas**: Renderização Pixi.js wrapper
 
-Configurado para Vercel com preview automático.
+### ✅ **State Management**
+- Zustand store para estado global
+- Hooks customizados para acesso fácil
+- Persistência de dados durante fluxo
+
+---
+
+## 🔄 Fluxo de Dados
+
+```
+User Input (Upload foto, dados)
+    ↓
+useFields() Hook
+    ↓
+Zustand Store (homageStore)
+    ↓
+CanvasRenderer (renderiza com Pixi.js)
+    ↓
+Canvas Component (React wrapper)
+    ↓
+Preview em Tempo Real
+```
+
+---
+
+## 📐 Arquitetura em Camadas
+
+```
+UI Layer (FlowPessoal, FlowVisual, Canvas)
+    ↓ (useFlow, useFields hooks)
+State Layer (Zustand Store)
+    ↓
+Engine Layer
+    ├─ FieldOrchestrator (campos + dependências)
+    ├─ FlowController (navegação + eventos)
+    ├─ CanvasRenderer (renderização Pixi.js)
+    └─ TemplateEngine (templates)
+```
+
+---
+
+## 🌐 Deploy Online (Vercel) - Ready!
+
+Já configurado! Cada push = deploy automático:
 
 ```bash
 git push origin main
-# Deploy automático no Vercel
+# → Deploy automático no Vercel
 ```
 
-## 📄 Licença
+---
 
-MIT
+## 🎯 Próximas Fases (Roadmap)
+
+### Phase 2 - Core Features
+```
+□ FlowFamiliar (Etapa 3)
+  - Seletor mensagens pré-definidas
+  - Editor frases bíblicas
+  - Preview atualizado
+
+□ FlowInformacoes (Etapa 4)
+  - Campos velório/sepultamento
+  - Validação de datas
+  - Mapa de local
+
+□ FlowSalvar (Etapa 5)
+  - Preview final
+  - Toggle premium
+  - Exportação PNG
+```
+
+### Phase 3 - Advanced
+```
+□ PhotoProcessor
+  - Crop & rotate
+  - Filters (brightness, etc)
+  - Auto-resize
+
+□ ExportEngine
+  - MP4 generation (FFmpeg.wasm)
+  - Batch exports
+
+□ PersistenceLayer
+  - Firebase/Supabase
+  - Share links
+  - Download histórico
+```
+
+---
+
+## 🧪 Testes Recomendados
+
+✅ Teste o upload de foto
+✅ Preencha todos os campos
+✅ Ative o Modo Guia
+✅ Troque de layout (veja preview atualizar)
+✅ Selecione diferentes templates
+✅ Redimensione a janela (mobile responsivo)
+✅ Valide campos obrigatórios
+
+---
+
+## 📊 Commits Realizados
+
+```
+✅ Initial commit: InMemória project structure
+✅ Add CanvasRenderer with Pixi.js integration
+✅ Add FlowController with step management
+✅ Add Canvas React component
+✅ Add React hooks for Flow and Field
+✅ Add FlowProgress component
+✅ Add FlowPessoal component (Step 1)
+✅ Add FlowVisual component (Step 2)
+✅ Update next.config.js & package.json
+```
+
+---
+
+## 🎬 Pronto para Produção?
+
+**Status**: ✅ **DEVELOPMENT READY**
+
+O que você tem:
+- ✅ Estrutura modular escalável
+- ✅ Canvas rendering performance-optimized
+- ✅ UI mobile-first responsiva
+- ✅ Type-safe TypeScript 100%
+- ✅ Padrões modernos implementados
+- ✅ Alterações cirúrgicas fáceis
+- ✅ Preview em tempo real
+- ✅ Validação de campos
+- ✅ Modo Guia implementado
+
+**Próximo Passo**: Implementar Etapas 3, 4 e 5 + Photo Processor
+
+---
+
+## 📝 Documentação
+
+Todos os arquivos têm JSDoc e comentários inline.
+
+Exemplo usar Canvas:
+```typescript
+<Canvas
+  template={selectedTemplate}
+  data={homage}
+  layout="RETANGULAR"
+  width={1080}
+  height={1080}
+  onError={(error) => console.error(error)}
+/>
+```
+
+Exemplo usar hooks:
+```typescript
+const { currentStep, nextStep, guideMode } = useFlow();
+const { updateField, getFieldValue } = useFields();
+```
+
+---
+
+## 🚀 InMemória - Homenagens que Perduram
+
+**Desenvolvido com respeito, simplicidade e tecnologia.** 🌿
+
+https://github.com/semcomentarios/inmemoria-app
